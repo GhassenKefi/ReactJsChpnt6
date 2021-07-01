@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+body{
+    background-color: #c0c0c02c;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sticky{
+    position: sticky;
+    position:-webkit-sticky;
+    top: 0;
+    z-index: 100;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.MainContent{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5%;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 50px;
+    width: 90%;
+    margin: 5%;
+    padding-bottom: 50px;
+}
+.Content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    background-color: white;
+    padding: 15px;
+    border-radius: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+.MovieList{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+
+.col{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card{
+    width: 90%;
+    border-radius: 25px;
+    text-align: center;
+}
+.card>img{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    max-height: 520px;
+}
+
+.MovieRating{
+    margin-bottom:5%;
+}
+
+.searchform{
+    margin-top: 5%;
+width: 100%;
+
+}
+
+.NoMovie{
+    margin-top: 2.5%;
+    text-align: center;
+    width: 100%;
+
+}
+
+
+.AddMovie{
+    display: flex;
+    justify-content: center;
+    position:relative;
+    margin-top: 1.5%;
+}
+
+.btn{
+    background-color: goldenrod;
+    border: goldenrod;
+}
+
+.btn:hover{
+    background-color: #d19704	;
 }
