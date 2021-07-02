@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MovieList from './Components/MovieList'
 import './App.css';
 import { Movies } from './Data';
@@ -10,7 +10,9 @@ function App() {
   const [movies, setMovies] = useState(Movies);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchRate, setSearchRate] = useState(0);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(movies);
+  const [searchResults1, setSearchResults1] = useState(movies);
+
 
   const addNewMovie = (newMovie) => {
     setMovies([...movies, newMovie])
@@ -19,32 +21,30 @@ function App() {
   const searchWordHandler = (searchTerm) => {
     setSearchTerm(searchTerm);
     if (searchTerm !== "") {
-      const newMoviesList = movies.filter((movie) => {
+      const newMoviesList = searchResults.filter((movie) => {
         return (
           Object.values(movie.title).join("").toLowerCase().includes(searchTerm.toLowerCase())
         )
       })
-      setSearchResults(newMoviesList)
+      setSearchResults1(newMoviesList)
     }
     else {
-      setSearchResults(movies)
+      setSearchResults1(searchResults1)
     }
   };
-
-
   const searchRatehandler = (Rate) => {
     setSearchRate(Rate);
     if (Rate > 0) {
       const newMoviesList = movies.filter(function (movie) {
         return movie.rating >= Rate;
       })
-      setSearchResults(newMoviesList)
-
+      setSearchResults(newMoviesList);
     } else {
-      setSearchResults(movies)
+      setSearchResults(movies);
     }
   };
-
+  useEffect(() => {
+  }, [])
   return (
     <div className="App">
       <Header
@@ -55,12 +55,12 @@ function App() {
       ></Header>
       <div className="MainContent">
         <MovieList
-          movie={searchTerm.length < 1 && searchRate === 0 ? movies : searchResults}
+          movie={searchTerm.length < 1 && searchRate === 0 ? searchResults :searchResults1}
         ></MovieList>
         <AddMovie addMovieFn={addNewMovie} />
       </div>
+
     </div>
   );
 }
-
 export default App;

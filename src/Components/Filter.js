@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, FormControl } from 'react-bootstrap'
-import { useRef,useState } from 'react';
+import { useRef,useState,useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
 
 
@@ -11,10 +11,10 @@ export default function Filter(props) {
 
     const changeRating = (newRating) => {
         setRating(newRating)
-        console.log('New rating filter '+newRating*2)
+}
+    useEffect(() => {
         props.getRatingTerms(rating*2)
-        console.log('rating filter '+rating*2)
-    }
+    },[rating])
 
     const getSearchTerm = () => {
         props.getSearchTerms(movienameref.current.value)

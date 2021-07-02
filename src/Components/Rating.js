@@ -14,6 +14,5 @@ export default function Rating(props) {
             style={{marginBottom:'15px'}}
         />
     );
-
 }
 
