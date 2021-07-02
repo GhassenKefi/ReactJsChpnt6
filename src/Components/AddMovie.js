@@ -1,7 +1,6 @@
 import React from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
-import { useRef } from 'react';
-import { useState } from 'react';
+import { useRef,useState } from 'react';
 
 const AddMovie = ({ addMovieFn }) => {
 
@@ -21,7 +20,6 @@ const AddMovie = ({ addMovieFn }) => {
         let rate = movieRateRef.current.value
         let poster = moviePosterRef.current.value
 
-
         let newMovie = {
             key: new Date(),
             title: title,
@@ -35,13 +33,12 @@ const AddMovie = ({ addMovieFn }) => {
     //props.addFn
     return (
         <div className="AddMovie">
-            <Button className="addMovieBtn" variant="primary" onClick={() => toggle()} >
+            <Button className="addMovieBtn zoom" variant="primary" onClick={() => toggle()} >
                 Add Movie
             </Button>
 
             <Modal
                 show={show}
-                // onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
                 key={new Date()}

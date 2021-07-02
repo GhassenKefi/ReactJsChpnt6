@@ -6,7 +6,7 @@ export default function MovieCard(props) {
 
     return (
         <Col>
-            <Card>
+            <Card className="zoom">
                 <Card.Img variant="top" src={props.movie.posterURL} />
                 <Card.Body>
                     <Card.Title>{props.movie.title}</Card.Title>
